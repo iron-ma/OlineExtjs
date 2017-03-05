@@ -8,18 +8,6 @@
 	href="extjs/resources/css/ext-all.css">
 <script type="text/javascript" src="extjs/ext-all.js"></script>
 <script type="text/javascript">
-	/* Ext.onReady(function() {
-
-		 var cat = {
-				name : "kafe",
-				sex : "男",
-				age : 18,
-				type : "动物"
-			}; 
-
-		 Ext.MessageBox.alert("hell world" + "姓名：" + cat.name + "性别：" + cat.sex
-					+ "类型" + cat.type); 
-	}); */
 	Ext
 			.onReady(function() {
 				Ext.MessageBox
@@ -33,7 +21,7 @@
 								} */
 								alert(btn);
 							},
-							animEl : 'elId',
+							/* animEl : 'elId', */
 							icon : Ext.MessageBox.QUESTION
 						});
 			});
