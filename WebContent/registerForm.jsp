@@ -9,6 +9,34 @@
 <script type="text/javascript" src="extjs/ext-all.js"></script>
 <script type="text/javascript">
 	Ext.onReady(function() {
+		//注册数据模型
+		Ext.regModel('jiguanModel', {
+			fields : [ {
+				name : 'jiguanmingzi'
+			}, {
+				name : 'jiguanzi'
+			} ]
+		});
+		//创建combox的数据源
+		var jiguanStore = Ext.create('Ext.data.Store', {
+			model : 'jiguanModel',
+			data : [ {
+				jiguanmingzi : '安徽',
+				jiguanzi : '1'
+			}, {
+				jiguanmingzi : '北京',
+				jiguanzi : '2'
+			}, {
+				jiguanmingzi : '天津',
+				jiguanzi : '3'
+			}, {
+				jiguanmingzi : '上海',
+				jiguanzi : '4'
+			}, {
+				jiguanmingzi : '广州',
+				jiguanzi : '5'
+			} ]
+		})
 		var form = new Ext.form.FormPanel({
 			title : '表单标题',
 			id : 'loginForm',
@@ -97,9 +125,32 @@
 					boxLabel : '乒乓球'
 				} ]
 
+			}, {
+				xtype : 'combo',
+				id : 'jiguan',
+				fieldLabel : '籍贯',
+				store : jiguanStore,//数据源
+				queryMode : 'local',
+				triggerAction : 'all',//触发查询的时候combox中得到的数据方式单击触发按钮时执行的默认操作，有效值包括“all”和“query”，默认为“query”使用raw value进行查询，如果设置为“all”则会执行allQuery中设置的查询
+				displayField : 'jiguanmingzi',//combox显示的值
+				valueField : 'jiguanzi'//combox真实的值
+			}, {
+				xtype : 'timefield',//时间文本框
+				id : 'registerTime',
+				fieldLabel : '登录时间',
+				maxValue : '19:00',//限制最大值
+				maxText : '时间不能晚于7点'//错误提示信息 
+			}, {
+				xtype : 'datefield',
+				id : 'registerDate',
+				fieldLabel : '注册日期',
+				format : 'Y-m-d'
 			} ],
 			buttons : [ {
-				text : '登录'
+				text : '登录',
+				handler : function() {
+					alert(Ext.getCmp('jiguan').getValue());
+				}
 			}, {
 				text : '关闭'
 			} ]
