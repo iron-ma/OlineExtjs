@@ -22,6 +22,7 @@
 	}); */
 	Ext
 			.onReady(function() {
+				var test = Ext.get("test");
 				Ext.MessageBox
 						.show({
 							title : 'Save Changes?',
@@ -42,5 +43,6 @@
 
 </head>
 <body>
+<div id ="test"></div>
 </body>
 </html>
