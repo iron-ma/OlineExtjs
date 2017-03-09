@@ -49,7 +49,7 @@
 							arr[i]=i+2;
 						}
 						var sum=0;
-						Ext.each(arr,function(v,i,a){
+						Ext.each(arr,function(v,i,a){//循环函数的使用
 							if(i%3==0){
 								a[i]=i+7;
 							}
@@ -61,7 +61,37 @@
 						alert(sum);
 						alert(arr);
 					}
-				}]
+				},{
+					text:'decode处理',
+					handler:function(){
+						//decode、encode
+						var json="{name:'北风网',address:'上海',type:'计算机软件'}";
+						var j=Ext.JSON.decode(json);
+						alert(j.name);
+						var jString=Ext.JSON.encode(j);
+						alert(jString);
+						Ext.getCmp("username").setValue(jString);
+					}
+				},{
+					text:'apply函数',
+					handler:function(){
+						var old={};//创建一个空的JSON对象
+						old.tool='金箍棒';
+						var news={};//
+						news.name='孙悟空';
+						news.age=12000;
+						news.address='花果山';
+						//c
+						//alert(news.name);
+						Ext.apply(old,news);
+						alert(Ext.JSON.encode(old));
+					} 
+				},{
+					text:'date函数',
+					handler:function(){
+						var birth=Ext.util.Format.date(Ext.getCmp("birth").getValue(),'Y-m-d');
+						alert(birth);
+					}}]
 			}).show();
 		})
 	</script>

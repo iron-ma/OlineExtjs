@@ -1,0 +1,31 @@
+Ext.namespace("online","online.extjs");
+//注册数据模型
+Ext.regModel("jiGuanModel",{
+	fields:[{
+		name:'jiGuanMingZi'
+	},{
+		name:'jiGuanZhi'
+	}]
+});
+online.extjs.jiGuanStore=Ext.create("Ext.data.Store",{
+	model:'jiGuanModel',
+	data:[{
+		jiGuanMingZi:'云南省',
+		jiGuanZhi:'1'
+	},{
+		jiGuanMingZi:'贵州省',
+		jiGuanZhi:'2'
+	},{
+		jiGuanMingZi:'江苏省',
+		jiGuanZhi:'3'
+	},{
+		jiGuanMingZi:'湖南省',
+		jiGuanZhi:'4'
+	},{
+		jiGuanMingZi:'湖北省',
+		jiGuanZhi:'5'
+	},{
+		jiGuanMingZi:'河北省',
+		jiGuanZhi:'6'
+	}]
+});

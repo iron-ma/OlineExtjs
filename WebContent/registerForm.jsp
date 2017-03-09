@@ -7,36 +7,9 @@
 <link type="text/css" rel="stylesheet"
 	href="extjs/resources/css/ext-all.css">
 <script type="text/javascript" src="extjs/ext-all.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
 <script type="text/javascript">
 	Ext.onReady(function() {
-		//注册数据模型
-		Ext.regModel('jiguanModel', {
-			fields : [ {
-				name : 'jiguanmingzi'
-			}, {
-				name : 'jiguanzi'
-			} ]
-		});
-		//创建combox的数据源
-		var jiguanStore = Ext.create('Ext.data.Store', {
-			model : 'jiguanModel',
-			data : [ {
-				jiguanmingzi : '安徽',
-				jiguanzi : '1'
-			}, {
-				jiguanmingzi : '北京',
-				jiguanzi : '2'
-			}, {
-				jiguanmingzi : '天津',
-				jiguanzi : '3'
-			}, {
-				jiguanmingzi : '上海',
-				jiguanzi : '4'
-			}, {
-				jiguanmingzi : '广州',
-				jiguanzi : '5'
-			} ]
-		})
 		var form = new Ext.form.FormPanel({
 			title : '表单标题',
 			id : 'loginForm',
@@ -129,11 +102,11 @@
 				xtype : 'combo',
 				id : 'jiguan',
 				fieldLabel : '籍贯',
-				store : jiguanStore,//数据源
+				store : online.extjs.jiGuanStore,//数据源
 				queryMode : 'local',
 				triggerAction : 'all',//触发查询的时候combox中得到的数据方式单击触发按钮时执行的默认操作，有效值包括“all”和“query”，默认为“query”使用raw value进行查询，如果设置为“all”则会执行allQuery中设置的查询
-				displayField : 'jiguanmingzi',//combox显示的值
-				valueField : 'jiguanzi'//combox真实的值
+				displayField : 'jiGuanMingZi',//combox显示的值
+				valueField : 'jiGuanZhi'//combox真实的值
 			}, {
 				xtype : 'timefield',//时间文本框
 				id : 'registerTime',
